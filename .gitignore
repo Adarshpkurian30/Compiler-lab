@@ -1,0 +1,27 @@
+# Compiled binaries
+exp1
+exp2
+exp3
+exp4
+exp5
+exp6
+exp7
+exp8
+
+# Object files
+*.o
+*.out
+
+# Executables
+*.exe
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+Thumbs.db

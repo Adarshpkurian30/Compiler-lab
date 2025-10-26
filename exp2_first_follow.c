@@ -1,6 +1,9 @@
 /*
  * Experiment 2: FIRST and FOLLOW Sets
  * Purpose: Compute FIRST and FOLLOW sets for a given grammar
+ * Note: This is a simplified implementation for educational purposes.
+ *       It handles basic grammars but may not cover all edge cases like
+ *       epsilon productions in FOLLOW set calculations.
  * KTU S7 BTech CSE - Compiler Lab
  */
 

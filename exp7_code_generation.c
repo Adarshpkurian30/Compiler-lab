@@ -13,12 +13,13 @@
 char expr[MAX];
 int temp_count = 1;
 int i = 0;
+char temp_vars[MAX][10]; // Array to store temporary variable names
+int temp_index = 0;
 
 // Function to generate new temporary variable
 char* newTemp() {
-    static char temp[10];
-    sprintf(temp, "t%d", temp_count++);
-    return temp;
+    sprintf(temp_vars[temp_index], "t%d", temp_count++);
+    return temp_vars[temp_index++];
 }
 
 // Function prototypes
@@ -60,7 +61,8 @@ char* T() {
 
 // F -> (E) | id
 char* F() {
-    static char buffer[10];
+    static char identifiers[MAX][10]; // Array to store identifiers
+    static int id_index = 0;
     
     if (expr[i] == '(') {
         i++; // skip (
@@ -70,10 +72,10 @@ char* F() {
     } else if (isalnum(expr[i])) {
         int j = 0;
         while (isalnum(expr[i])) {
-            buffer[j++] = expr[i++];
+            identifiers[id_index][j++] = expr[i++];
         }
-        buffer[j] = '\0';
-        return buffer;
+        identifiers[id_index][j] = '\0';
+        return identifiers[id_index++];
     }
     
     return "";

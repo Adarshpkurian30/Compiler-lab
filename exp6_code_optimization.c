@@ -27,8 +27,14 @@ int n;
 // Function to check if string is a number
 int isNumber(char *str) {
     if (str[0] == '\0') return 0;
-    for (int i = 0; str[i]; i++) {
-        if (!isdigit(str[i]) && str[i] != '-') return 0;
+    int start = 0;
+    // Check for optional minus sign at the beginning
+    if (str[0] == '-') {
+        if (str[1] == '\0') return 0; // Just a minus sign
+        start = 1;
+    }
+    for (int i = start; str[i]; i++) {
+        if (!isdigit(str[i])) return 0;
     }
     return 1;
 }
